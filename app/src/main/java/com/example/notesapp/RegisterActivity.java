@@ -26,6 +26,8 @@ public class RegisterActivity extends AppCompatActivity {
     TextView tvLoginHere;
     Button btnRegister;
 
+   // FirebaseDatabase database = FirebaseDatabase.getInstance("https://assignment2firebase-ba6f5-default-rtdb.europe-west1.firebasedatabase.app/");
+
     FirebaseAuth mAuth;
 
     @Override
@@ -77,7 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
 
                         User user = new User(email, password, phone, name);
-                        FirebaseDatabase.getInstance().getReference("Users")
+                        FirebaseDatabase.getInstance("https://assignment2firebase-ba6f5-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                 .setValue(user);
 

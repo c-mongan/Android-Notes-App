@@ -17,6 +17,8 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.notesapp.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         btnLogOut = findViewById(R.id.btnLogout);
         mAuth = FirebaseAuth.getInstance();
 
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
         if (user == null){
